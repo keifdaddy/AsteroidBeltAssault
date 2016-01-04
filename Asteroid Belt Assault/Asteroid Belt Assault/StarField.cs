@@ -12,7 +12,7 @@ namespace Asteroid_Belt_Assault
         private List<Sprite> stars = new List<Sprite>();
         private int screenWidth = 800;
         private int screenHeight = 600;
-        private Random rand = new Random();
+        private static Random rand = new Random(System.Environment.TickCount);
         private Color[] colors = { Color.White, Color.Yellow, 
                            Color.Wheat, Color.WhiteSmoke, 
                            Color.SlateGray };
