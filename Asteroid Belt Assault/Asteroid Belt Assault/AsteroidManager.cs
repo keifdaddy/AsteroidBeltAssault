@@ -23,6 +23,8 @@ namespace Asteroid_Belt_Assault
 
         private Random rand = new Random();
 
+        public Sprite meteor;
+
         public void AddAsteroid()
         {
             Sprite newAsteroid = new Sprite(
@@ -66,6 +68,8 @@ namespace Asteroid_Belt_Assault
             {
                 AddAsteroid();
             }
+
+            meteor = new Sprite(new Vector2(900, 200), texture, new Rectangle(0, 307, 267, 43), new Vector2(-5, 0));
         }
 
         private Vector2 randomLocation()
@@ -194,15 +198,24 @@ namespace Asteroid_Belt_Assault
                     }
                 }
             }
+
+            if (meteor.Location.X < -1000)
+                meteor.Location = new Vector2(1200, 200);
+
+            meteor.Update(gameTime);
         }
 
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            meteor.Draw(spriteBatch);
+
             foreach (Sprite asteroid in Asteroids)
             {
                 asteroid.Draw(spriteBatch);
             }
+
+            
         }
 
 

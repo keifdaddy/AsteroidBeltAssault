@@ -45,11 +45,7 @@ namespace Asteroid_Belt_Assault
                 screenBounds);
 
             playerAreaLimit =
-                new Rectangle(
-                    0,
-                    100,
-                    800,
-                    380);
+                new Rectangle(0, 480, 800, 0);
 
             for (int x = 1; x < frameCount; x++)
             {
