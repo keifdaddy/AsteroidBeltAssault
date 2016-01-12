@@ -19,7 +19,7 @@ namespace Asteroid_Belt_Assault
 
         public List<Sprite> Asteroids = new List<Sprite>();
         private int minSpeed = 60;
-        private int maxSpeed = 120;
+        private int maxSpeed = 200;
 
         private Random rand = new Random();
 

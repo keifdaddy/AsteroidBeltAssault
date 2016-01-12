@@ -237,6 +237,16 @@ namespace Asteroid_Belt_Assault
                     explosionManager.Update(gameTime);
                     collisionManager.CheckCollisions();
 
+
+                    MouseState ms = Mouse.GetState();
+
+                    if (ms.LeftButton == ButtonState.Pressed)
+                    {
+                        Vector2 click = new Vector2(ms.X, ms.Y);
+
+                    
+                    }
+
                     if (playerManager.Destroyed)
                     {
                         playerDeathTimer = 0f;
@@ -342,6 +352,11 @@ namespace Asteroid_Belt_Assault
                         livesLocation,
                         Color.White);
                 }
+
+                MouseState ms = Mouse.GetState();
+                Vector2 click = new Vector2(ms.X, ms.Y);
+
+                spriteBatch.Draw(spriteSheet, new Rectangle(ms.X - 19, ms.Y - 19, 38, 38), new Rectangle(0, 356, 38, 38), Color.White);
             }
 
             if ((gameState == GameStates.GameOver))

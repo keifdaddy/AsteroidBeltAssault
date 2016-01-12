@@ -61,11 +61,16 @@ namespace Asteroid_Belt_Assault
 
         private void FireShot()
         {
+            FireShot(new Vector2(0, -1));
+        }
+
+        private void FireShot(Vector2 velocity)
+        {
             if (shotTimer >= minShotTimer)
             {
                 PlayerShotManager.FireShot(
                     playerSprite.Location + gunOffset,
-                    new Vector2(0, -1),
+                    velocity,
                     true);
                 shotTimer = 0.0f;
             }
@@ -96,6 +101,15 @@ namespace Asteroid_Belt_Assault
             if (keyState.IsKeyDown(Keys.Space))
             {
                 FireShot();
+            }
+
+            MouseState ms = Mouse.GetState();
+
+            if (ms.LeftButton == ButtonState.Pressed)
+            {
+                Vector2 direction = new Vector2(ms.X, ms.Y)- playerSprite.Location;
+                direction.Normalize();
+                FireShot(direction);
             }
         }
 
