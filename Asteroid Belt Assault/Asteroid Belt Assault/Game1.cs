@@ -23,6 +23,8 @@ namespace Asteroid_Belt_Assault
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;
         Texture2D spriteSheet;
+        Texture2D planetsmash;
+        Sprite background;
 
         List<StarField> starField;
         AsteroidManager asteroidManager;
@@ -75,8 +77,10 @@ namespace Asteroid_Belt_Assault
 
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
+            planetsmash = Content.Load<Texture2D>(@"Textures\planetsmash");
 
             starField = new List<StarField>();
+            background = new Sprite(new Vector2(0, 0), planetsmash, new Rectangle(0, 0, 800, 600), Vector2.Zero);
 
             starField.Add(new StarField(
                 this.Window.ClientBounds.Width,
@@ -233,6 +237,7 @@ namespace Asteroid_Belt_Assault
                     }
                     asteroidManager.Update(gameTime);
                     playerManager.Update(gameTime);
+                    background.Update(gameTime);
                     enemyManager.Update(gameTime);
                     explosionManager.Update(gameTime);
                     collisionManager.CheckCollisions();
@@ -274,6 +279,7 @@ namespace Asteroid_Belt_Assault
                     }
                     asteroidManager.Update(gameTime);
                     enemyManager.Update(gameTime);
+                    background.Update(gameTime);
                     playerManager.PlayerShotManager.Update(gameTime);
                     explosionManager.Update(gameTime);
 
@@ -292,6 +298,7 @@ namespace Asteroid_Belt_Assault
                         sf.Update(gameTime);
                     }
                     asteroidManager.Update(gameTime);
+                    background.Update(gameTime);
                     enemyManager.Update(gameTime);
                     playerManager.PlayerShotManager.Update(gameTime);
                     explosionManager.Update(gameTime);
@@ -328,10 +335,14 @@ namespace Asteroid_Belt_Assault
                 (gameState == GameStates.PlayerDead) ||
                 (gameState == GameStates.GameOver))
             {
+
                 foreach (StarField sf in starField)
                 {
                     sf.Draw(spriteBatch);
                 }
+                spriteBatch.Draw(planetsmash, new Rectangle(-50, this.Window.ClientBounds.Height - planetsmash.Height + 50, planetsmash.Width, planetsmash.Height), Color.White);
+
+
                 asteroidManager.Draw(spriteBatch);
                 playerManager.Draw(spriteBatch);
                 enemyManager.Draw(spriteBatch);
