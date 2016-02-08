@@ -61,4 +61,3 @@ C:\Users\eahscs\Documents\GitHub\AsteroidBeltAssault\Asteroid Belt Assault\Aster
 C:\Users\eahscs\Documents\GitHub\AsteroidBeltAssault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\meteor.xnb
 C:\Users\eahscs\Documents\GitHub\AsteroidBeltAssault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\planetsmash.xnb
 C:\Users\eahscs\Documents\GitHub\AsteroidBeltAssault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\pew.xnb
-C:\Users\eahscs\Documents\GitHub\AsteroidBeltAssault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Sounds\pew.wma
